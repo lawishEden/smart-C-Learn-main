@@ -1,9 +1,9 @@
 spring:
   # 数据源配置
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/smart-c?serverTimezone=Hongkong&useAffectedRows=true&characterEncoding=utf-8
+    username: 
+    password: 
+    url: jdbc:mysql://127.0.0.1:3306/*******?serverTimezone=Hongkong&useAffectedRows=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   jackson:
@@ -13,7 +13,7 @@ spring:
 
 
   mail:
-    username: 2672233894@qq.com
+    username: *@qq.com
     password:
     host: smtp.qq.com
     port: 465
@@ -40,7 +40,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 阿里云通义千问配置
-ai-key: sk-7cfe37b6521043b9be8da42731c2f913
+ai-key:*************************
 # 阿里云对象存储配置
 oss:
   bucket-name: xxxxxxxxxxx
