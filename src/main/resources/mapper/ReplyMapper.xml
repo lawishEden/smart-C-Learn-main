@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="world.xuewei.dao.ReplyMapper">
+
+    <resultMap id="BaseResultMap" type="world.xuewei.entity.Reply">
+            <id property="rid" column="rid" jdbcType="BIGINT"/>
+            <result property="pid" column="pid" jdbcType="BIGINT"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="replymessage" column="replymessage" jdbcType="VARCHAR"/>
+            <result property="replytime" column="replytime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        rid,pid,uid,
+        replymessage,replytime
+    </sql>
+</mapper>

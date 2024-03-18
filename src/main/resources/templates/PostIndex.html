@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ayurvedic - Medical Template</title>
+
+
+  <script  th:src="@{js/jquery/2.0.0/jquery.min.js}" src="js/jquery/2.0.0/jquery.min.js"></script>
+  <link th:href="@{../css/bootstrap/3.3.6/bootstrap.min.css}" href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet"/>
+  <script th:src="@{js/bootstrap/3.3.6/bootstrap.min.js}" src="js/bootstrap/3.3.6/bootstrap.min.js"></script>
+
+  <script type="text/javascript" th:src="@{js/private.js}"></script>
+  <link th:href="@{css/tx.css}" rel="stylesheet"/>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/cropped-favicon-32x32.png"/>
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+
+  <link href="assets/css/plugin.css" rel="stylesheet" type="text/css"/>
+
+  <link href="assets/css/dashboard.css" rel="stylesheet" type="text/css"/>
+
+  <link href="assets/fonts/flaticon.css" rel="stylesheet" type="text/css"/>
+
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+
+  <link rel="stylesheet" href="/static/assets/fonts/line-icons.css" type="text/css"/>
+  <link rel="stylesheet" href="/static/common/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<div id="preloader">
+  <div id="status"></div>
+</div>
+
+
+<div th:replace="common/common-bar::#header"></div>
+
+<div id="dashboard">
+  <div class="container">
+    <div class="dashboard-main">
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <div th:replace="common/common-bar::#dashboard-sidebar(cur='doctor')"></div>
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+          <div class="dashboard-content">
+              <div class="col-lg-12 col-md-12">
+                <div th:each="post:${page.records}">
+                  <div class="col-xs-12">
+                    <div class="panel panel-info">
+                      <div class="panel-heading" th:text="${post.ptitle}" style="font-size: 18px;font-weight: bolder">帖子标题</div>
+                      <div class="panel-body" th:utext="${post.pbody}" style="height: 95px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden; ">
+                        帖子内容<br/>
+                        帖子内容<br/>
+                        帖子内容<br/>
+
+                        帖子内容<br/>
+                      </div>
+                      <div class="panel-footer" style="height: 40px;">
+                        <div class="col-xs-2">
+                          <span class="text-info" th:text="|发帖用户:${post.user.userName}|">发帖用户:xxx</span>
+                        </div>
+                        <div class="col-xs-6">
+                        <span class="text-primary"
+                              th:text="${post.lastreplytime==null}?|发帖时间:${#dates.format(post.psendtime,'yyyy-MM-dd HH:mm:ss')}|:|最后回复时间:${#dates.format(post.lastreplytime,'yyyy-MM-dd HH:mm:ss')}|">最后回复时间:2019-2-5-08:00:00</span>
+                        </div>
+                        <div class="col-xs-2">
+                          <span class="badge" th:text="|回复数:${post.replyCount}|">回复数:42</span>
+                        </div>
+                        <div class="col-xs-1">
+                          <a th:href="|/post/${post.pid}.html|">
+                            <button type="button" class="">查看</button>
+                          </a>
+                        </div>
+                        <div class="col-xs-1" th:if="${session.user!=null}?(${session.user.uid == post.user.uid}?true:${session.user.level==0}):false">
+                          <a th:href="|/delete/${post.pid}|">
+                            <button type="button" class="btn btn-primary btn-xs">删除</button>
+                          </a>
+                        </div>
+                      </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div th:replace="common/common-bar::#back"></div>
+
+<div th:replace="common/common-bar::#footer"></div>
+
+<div th:replace="common/common-bar::#search"></div>
+
+<div th:replace="common/common-bar::#back-to-top"></div>
+
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/plugin.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom-nav.js"></script>
+<script src="assets/js/jpanelmenu.min.js"></script>
+<script src="assets/js/dashboard-custom.js"></script>
+<script src="common/utils/reg.js"></script>
+<script src="common/layer/layer.js"></script>
+<script src="common/custom.js"></script>
+</body>
+</html>
+
+<script>
+  window.onload = messageInit;
+</script>

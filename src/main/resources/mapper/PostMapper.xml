@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="world.xuewei.dao.PostMapper">
+
+    <resultMap id="BaseResultMap" type="world.xuewei.entity.Post">
+            <id property="pid" column="pid" jdbcType="INTEGER"/>
+            <result property="ptitle" column="ptitle" jdbcType="VARCHAR"/>
+            <result property="pbody" column="pbody" jdbcType="VARCHAR"/>
+            <result property="psendtime" column="psendtime" jdbcType="TIMESTAMP"/>
+            <result property="lastreplytime" column="lastreplytime" jdbcType="TIMESTAMP"/>
+            <result property="id" column="id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pid,ptitle,pbody,
+        psendtime,lastreplytime,id
+    </sql>
+</mapper>
